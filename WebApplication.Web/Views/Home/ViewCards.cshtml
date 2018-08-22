@@ -1,0 +1,64 @@
+﻿@model WebApplication.Web.Models.FlashCards.DeckModel
+
+@{
+    ViewData["Title"] = "ViewCards";
+}
+
+<section class="maincontent">
+    <form id="update-form" method="post">
+
+        <h3 id="deck-name">@Model.name <a href="#"><span class="glyphicon glyphicon-pencil"></span></a></h3>
+        <input id="name-input" asp-for="name" value="@Model.name" />
+        
+		<p id="deck-description">@Model.description <a href="#"><span class="glyphicon glyphicon-pencil"></span></a></p>
+        <input id="description-input" asp-for="description" value="@Model.description" />
+
+        <input type="submit" class="btn btn-primary" id="save" value="Save" />
+    </form>
+
+
+	<div class="viewcardsbuttons">
+		@if (Model.cards.Count != 0)
+		{
+			<form><button type="submit" class="btn btn-success" asp-controller="Home" asp-action="StudySession" asp-route-id="@Model.id">Begin Study Session</button></form>
+		}
+		</div>
+	<div class="viewcardsbuttons">
+		<input type="button" class="btn btn-group" value="Add More Cards" onclick="window.location.href='../MakeCard/@Model.id'" />
+	</div>
+
+	<div class="viewcardsbuttons">
+		<form asp-controller="Home" asp-action="DeleteDeck" asp-route-deckId="@Model.id" onsubmit="return confirm('Are you sure you want to delete this deck?');"><input type="submit" value="Delete Deck" class="btn btn-danger" /></form>
+	</div>
+   
+
+
+
+    <div class="cardscontainer">
+        @foreach (var card in Model.cards)
+        {
+            <div class="card-options">
+                <div class="card">
+                    <div class="front">@card.front</div>
+                    <div class="back">@card.back</div>
+                </div>
+
+                <div class="card-options-buttons">
+                    <form asp-controller="Home" asp-action="MakeCard" asp-route-deckId="@Model.id" asp-route-cardId="@card.id" method="get">
+                        <input type="submit" value="Edit" class="btn btn-primary" />
+                    </form>
+                    <form asp-controller="Home" asp-action="RemoveCardFromDeck" asp-route-cardId="@card.id" asp-route-deckId="@Model.id" onsubmit="return confirm('Are you sure you want to remove this card?');">
+                        <input type="submit" value="Delete" class="btn btn-danger" />
+                    </form>
+                </div>
+
+            </div>
+        }
+
+        <script type="text/javascript" src="~/lib/jquery/dist/jquery.js"></script>
+        <script type="text/javascript" src="~/lib/jquery/dist/jquery.flip.min.js"></script>
+        <script type="text/javascript" src="~/js/flashcards.js"></script>
+    </div>
+    <script type="text/javascript" src="~/js/EditDeck.js"></script>
+</section>
+

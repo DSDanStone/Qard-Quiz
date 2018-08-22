@@ -1,0 +1,394 @@
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification\ 
+for details on configuring this project to bundle and minify static web assets. */
+body {
+    padding-top: 90px;
+    padding-bottom: 20px;
+    background-color: #00adee;
+}
+
+/* Wrapping element */
+/* Set some basic padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+	padding-bottom: 15px;
+}
+
+
+/*Main content*/
+section.maincontent {
+	text-align: center;
+	clear: both;
+	display: block;
+	width: 80%;
+	vertical-align: top;
+	min-height: 450px;
+	background-color: #FFF;
+	border-radius: 7px;
+	margin: auto;
+	margin-top: 20px;
+	padding-top: 20px;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-bottom: 15px;
+}
+
+
+/* Carousel */
+.carousel-caption p {
+    font-size: 20px;
+    line-height: 1.4;
+}
+
+/* Make .svg files in the carousel display properly in older browsers */
+.carousel-inner .item img[src$=".svg"] {
+    width: 100%;
+}
+
+/* QR code generator */
+#qrCode {
+    margin: 15px;
+}
+
+/* Hide/rearrange for smaller screens */
+@media screen and (max-width: 767px) {
+    /* Hide captions */
+    .carousel-caption {
+        display: none;
+    }
+}
+
+.card-maker {
+    display: grid;
+    grid-template-columns: 1fr 5fr 2fr;
+    grid-template-areas: 'front-label front front-span' 'back-label back back-span' 'key-label key .' 'submit finish .';
+}
+
+    .card-maker textarea {
+        background-image: url(../images/NoteCard.png);
+        background-size: 100% 100%;
+        font-size: 3em;
+        text-align: center;
+        margin: 5px;
+    }
+
+        .card-maker textarea span {
+            vertical-align: middle;
+        }
+
+#front-card-label {
+    grid-area: front-label;
+}
+
+#front-card {
+    grid-area: front;
+}
+
+#front-card-span {
+    grid-area: front-span;
+}
+
+#back-card-label {
+    grid-area: back-label;
+}
+
+#back-card {
+    grid-area: back;
+}
+
+#back-card-span {
+    grid-area: back-span;
+}
+
+#keyword-card-label {
+    grid-area: key-label;
+}
+
+#keyword-card {
+    grid-area: key;
+}
+
+#submit {
+    grid-area: submit;
+}
+
+#finish {
+    grid-area: finish;
+}
+
+
+
+
+.deckscontainer {
+    background-color: #f7f7f7;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+	padding-top: 20px;
+    /*text-align: left !important;*/
+}
+
+.cardscontainer {
+    /*width: 90%;*/
+    height: auto;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    background-color: #f7f7f7;
+	padding-top: 30px;
+	padding-bottom: 10px;
+}
+
+.deckdiv {
+    width: 400px;
+    /*height: 150px;*/
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    border: groove;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    text-align: center;
+	padding-left: 3px;
+	padding-right: 3px;
+	overflow:auto;
+	padding-bottom: 10px;
+}
+
+
+.deckbuttons {
+    margin-top: 10px;
+}
+
+.card {
+	width: 300px;
+	height: 200px;
+	text-align: center;
+}
+
+.front {
+	width: 300px;
+	height: 200px;
+	background-color: #fff;
+	border-color: #b6ff00;
+	border-radius: 25px;
+	padding-top: 30px;
+	padding-left: 3px;
+	padding-right: 3px;
+	padding-bottom: 5px;
+	border: groove;
+}
+
+.back {
+	width: 300px;
+	height: 200px;
+	background-color: #fff;
+	border-radius: 25px;
+	padding-left: 3px;
+	padding-right: 3px;
+	padding-bottom: 5px;
+	padding-top: 30px;
+	border: groove;
+}
+
+.deckborder {
+    width: 300px;
+    height: 200px;
+    border: solid;
+    border-radius: 10px;
+    border-color: #000;
+    background-color: #ffffff;
+}
+
+textarea {
+    resize: none;
+    overflow: hidden;
+}
+
+footer p {
+    color: #ffffff;
+    text-align: center;
+}
+
+h1, h2 {
+    color: rgba(16, 16, 16, 1);
+    text-align: center;
+}
+
+h3, p {
+    color: rgba(16, 16, 16, 1);
+    text-align: center;
+}
+
+
+a {
+    color: rgba(16, 16, 16, 1);
+}
+
+    a:hover {
+        color: rgba(16, 16, 16, 1);
+    }
+
+
+
+.button {
+    display: block;
+    border-radius: 4px;
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 18px;
+    padding: 12px;
+    width: 120px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: auto;
+}
+
+
+
+    .button span {
+        cursor: pointer;
+        display: inline-block;
+        position: relative;
+        transition: 0.5s;
+        color: #ffffff;
+    }
+
+        .button span:after {
+            content: '\00bb';
+            position: absolute;
+            opacity: 0;
+            top: 0;
+            right: -20px;
+            transition: 0.5s;
+        }
+
+    .button:hover span {
+        padding-right: 25px;
+    }
+
+        .button:hover span:after {
+            opacity: 1;
+            right: 0;
+        }
+
+#account.button {
+    background-color: teal;
+    color: #FFFFFF;
+}
+
+
+.studysession {
+	background-color: #f7f7f7;
+	padding-top: 30px;
+	padding-bottom: 10px;
+	display: block;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+.studybuttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    position: absolute;
+    vertical-align: bottom;
+    bottom: 10px;
+    margin-top: 10px;
+    width: 100%;
+    height: 30px;
+}
+
+.studycard {
+    width: 300px;
+    height: 250px;
+    display: block;
+    position: relative;
+    top: 25%;
+    margin: auto;
+    vertical-align: middle;
+	background-color:#ffffff;
+}
+
+    .studycard button {
+        width: 40%;
+        margin-right: 20px;
+        margin-left: 20px;
+    }
+
+.progresscontainer {
+	width: 30%;
+	margin-left: auto;
+	margin-right:auto;
+}
+
+
+
+.form {
+	width: 40%;
+	display: block;
+	margin: auto;
+}
+
+
+
+.field-validation-error {
+	color: red;
+	font-size: 13px;
+}
+
+
+#progbar {
+    /*text-align: left !important;
+    text-indent: 43%;*/
+    color: rgba(16, 16, 16, 1);
+}
+
+.keywordsearch {
+	width: 200px;
+	display: block;
+    margin: auto;
+}
+
+
+#viewcardsbeginstudy {
+    display: inline-block;
+    margin: auto;
+    justify-content: center;
+}
+
+
+.card-options {
+	background-color: #ffffff;
+	padding: 2px;
+	margin: 1px;
+}
+
+.card-options-buttons {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	padding-left: 20%;
+	padding-right: 20%;
+	padding-bottom: 3px;
+}
+
+#description-input, #name-input, #save {
+	display: none;
+}
+
+.glyphicon-pencil {
+	font-size: 10px;
+}
+
+
+.viewcardsbuttons {
+	display: inline-block;
+	padding: 10px;
+}
+
+.viewdecksbuttons {
+	display: inline-block;
+	padding: 10px;
+}
