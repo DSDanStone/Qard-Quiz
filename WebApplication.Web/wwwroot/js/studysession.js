@@ -8,7 +8,7 @@ let wrong_answers = [];
 
 $(document).ready(function () {
     let container = $('.studycard');
-    let flashcard = $(`<div class="card"></div>`);
+    let flashcard = $(`<div class="card study-session-card"></div>`);
     let cardfront = $(`<div class="front">${flashcards[current_index].front}</div>`);
     let cardback = $(`<div class="back">${flashcards[current_index].back}</div>`);
 
@@ -72,7 +72,8 @@ $(document).ready(function () {
 //Ends the currend study session
 function endStudySession() {
     $(".card").hide(1);
-    $(".studybuttons").hide(1);
+	$(".studybuttons").hide(1);
+	$(".studycard").css("overflow", "auto");
 
     quiz_score = Math.round(right_answers / totalcards * 100);
 

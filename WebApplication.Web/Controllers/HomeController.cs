@@ -116,13 +116,13 @@ namespace WebApplication.Web.Controllers
         {
             User user = authProvider.GetCurrentUser();
 
-            if (decksDAL.VerifyDeckByUser(user, deck))
+            if (ModelState.IsValid && decksDAL.VerifyDeckByUser(user, deck))
             {
                 decksDAL.UpdateDeck(deck);
                 return RedirectToAction("ViewCards", new { deckId = deck.id });
             }
 
-            return RedirectToAction("index");
+            return View();
         }
 
         [HttpGet]
@@ -150,14 +150,17 @@ namespace WebApplication.Web.Controllers
                 return RedirectToAction("index");
             }
 
-            deck = decksDAL.MakeDeck(user, deck);
-
-            if (decksDAL.VerifyDeckByUser(user, deck))
+            if (ModelState.IsValid)
             {
-                return RedirectToAction("MakeCard", new { deckId = deck.id });
+                deck = decksDAL.MakeDeck(user, deck);
+
+                if (decksDAL.VerifyDeckByUser(user, deck))
+                {
+                    return RedirectToAction("MakeCard", new { deckId = deck.id });
+                }
             }
 
-            return RedirectToAction("index");
+            return View();
         }
 
         [HttpGet]

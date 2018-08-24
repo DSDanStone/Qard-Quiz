@@ -4,36 +4,37 @@
 }
 
 <section class="maincontent">
-	<h2>Study Session</h2>
-	<h3>@Model.name</h3>
-	<p>@Model.description</p>
+    <div class="study-session-info">
+        <h3>@Model.name</h3>
+        <p>@Model.description</p>
+    </div>
 
-	<div class="studysession">
-		<script>
+    <div class="studysession">
+        <script>
     let flashcards = @Html.Raw(Json.Serialize(Model.cards));
-		</script>
-		<script type="text/javascript" src="~/lib/jquery/dist/jquery.js"></script>
-		<script type="text/javascript" src="~/js/studysession.js"></script>
-	
-		<script type="text/javascript" src="~/lib/jquery/dist/jquery.flip.min.js"></script>
-		<script type="text/javascript" src="~/js/flashcards.js"></script>
+        </script>
+        <script type="text/javascript" src="~/lib/jquery/dist/jquery.js"></script>
+        <script type="text/javascript" src="~/js/studysession.js"></script>
+
+        <script type="text/javascript" src="~/lib/jquery/dist/jquery.flip.min.js"></script>
+        <script type="text/javascript" src="~/js/flashcards.js"></script>
 
 
-		<div class="progresscontainer">
-			<p>Your Progress</p>
-			<div class="progress">
-				<div id="progbar" class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%">
-					<span id="current-progress"></span>
-				</div>
-			</div>
-		</div>
-		<div class="studycard">
+        <div class="progresscontainer">
+            <label>Progress</label>
+            <div class="progress">
+                <div id="progbar" class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%">
+                    <span id="current-progress"></span>
+                </div>
+            </div>
+        </div>
+        <div class="studycard">
             <div class="studybuttons">
                 <button id="wrong" class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span></button>
                 <button id="right" class="btn btn-success"><span class="glyphicon glyphicon-ok"></span></button>
-                <button class="btn btn-default" onclick="endStudySession()">End Session</button>
+                <button class="btn btn-default" onclick="endStudySession()">End</button>
             </div>
-
-		</div>
-	</div>
+        </div>
+    </div>
+    <a class="btn btn-info btn-xs" href="../ViewCards/@Model.id">Return</a>
 </section>

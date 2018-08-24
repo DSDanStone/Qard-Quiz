@@ -18,8 +18,11 @@
         </div>
     </form>
 
-
-
+    @if(Model.Count==0)
+    {
+        <h5>You Don't Have Any Decks Yet...</h5>
+        <a href="../Home/MakeDeck" class="btn btn-info">Make My First Deck</a>
+    }
 
     <div class="deckscontainer">
         @foreach (var deck in Model)

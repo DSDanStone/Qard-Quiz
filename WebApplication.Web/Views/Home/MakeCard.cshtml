@@ -4,24 +4,38 @@
 }
 
 <section class="maincontent">
-
     <form asp-controller="home" asp-action="MakeCard" method="post" asp-route-deckId="@Model.deckId" asp-route-cardId="@Model.id" class="card-maker">
-        <label asp-for="front" id="front-card-label">Front:</label>
-        <textarea asp-for="front" value="@Model.front" id="front-card" data-limit-rows="true" cols="25" rows="4" maxlength="200"></textarea>
-        <span asp-validation-for="front" class="validation-error"></span>
-
-        <label asp-for="back" id="back-card-label">Back:</label>
-        <textarea asp-for="back" value="@Model.back" id="back-card" data-limit-rows="true" cols="25" rows="4" maxlength="200"></textarea>
-        <span asp-validation-for="back" class="validation-error"></span>
-
-        <label asp-for="keywords" id="keyword-card-label">Keywords:</label>
-        <input asp-for="keywords" value="@Model.keywords" id="keyword-card" />
+        <table class="table table-borderless" id="make-card-table">
+            <tr>
+                <td>
+                    <label asp-for="front" id="front-card-label">Front:</label>
+                    <textarea asp-for="front" value="@Model.front" class="form-control" id="front-card" data-limit-rows="true" cols="25" rows="4" maxlength="200"></textarea>
+                    <span asp-validation-for="front" class="validation-error"></span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label asp-for="back" id="back-card-label">Back:</label>
+                    <textarea asp-for="back" value="@Model.back" class="form-control" id="back-card" data-limit-rows="true" cols="25" rows="4" maxlength="200"></textarea>
+                    <span asp-validation-for="back" class="validation-error"></span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label asp-for="keywords" id="keyword-card-label">Keywords:</label>
+                    <input asp-for="keywords" class="form-control" value="@Model.keywords" id="keyword-card" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button type="submit" class="btn btn-primary" id="submit">Save</button>
+                    <a href='~/Home/ViewCards/@Model.deckId' type="submit" class="btn btn-success" id="finish">View</a>
+                </td>
+            </tr>
+        </table>
 
         <input asp-for="deckId" type="hidden" />
         <input asp-for="id" type="hidden" />
-
-        <button type="submit" class="btn btn-primary" id="submit">Save Card</button>
-        <a href='~/Home/ViewCards/@Model.deckId' type="submit" class="btn btn-success" id="finish">View Cards</a>
     </form>
 
     <script type="text/javascript" src="~/lib/jquery/dist/jquery.js"></script>

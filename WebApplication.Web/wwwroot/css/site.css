@@ -1,9 +1,13 @@
 ﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification\ 
 for details on configuring this project to bundle and minify static web assets. */
+
+@import url('https://fonts.googleapis.com/css?family=Quicksand');
+
 body {
-    padding-top: 90px;
-    padding-bottom: 20px;
-    background-color: #00adee;
+	padding-top: 90px;
+	padding-bottom: 20px;
+	background-color: #00adee;
+	font-family: 'Quicksand', sans-serif;
 }
 
 /* Wrapping element */
@@ -58,69 +62,27 @@ section.maincontent {
     }
 }
 
-.card-maker {
-    display: grid;
-    grid-template-columns: 1fr 5fr 2fr;
-    grid-template-areas: 'front-label front front-span' 'back-label back back-span' 'key-label key .' 'submit finish .';
+.table-borderless > tbody > tr > td,
+.table-borderless > tbody > tr > th,
+.table-borderless > tfoot > tr > td,
+.table-borderless > tfoot > tr > th,
+.table-borderless > thead > tr > td,
+.table-borderless > thead > tr > th {
+    border: none;
 }
 
-    .card-maker textarea {
-        background-image: url(../images/NoteCard.png);
-        background-size: 100% 100%;
-        font-size: 3em;
-        text-align: center;
-        margin: 5px;
-    }
-
-        .card-maker textarea span {
-            vertical-align: middle;
-        }
-
-#front-card-label {
-    grid-area: front-label;
+#make-card-table{
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-#front-card {
-    grid-area: front;
+#submit, finish{
+    margin: 10px;
 }
-
-#front-card-span {
-    grid-area: front-span;
-}
-
-#back-card-label {
-    grid-area: back-label;
-}
-
-#back-card {
-    grid-area: back;
-}
-
-#back-card-span {
-    grid-area: back-span;
-}
-
-#keyword-card-label {
-    grid-area: key-label;
-}
-
-#keyword-card {
-    grid-area: key;
-}
-
-#submit {
-    grid-area: submit;
-}
-
-#finish {
-    grid-area: finish;
-}
-
-
-
 
 .deckscontainer {
-    background-color: #f7f7f7;
+    background-color: #fff;
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
@@ -134,25 +96,25 @@ section.maincontent {
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
-    background-color: #f7f7f7;
+    background-color: #fff;
 	padding-top: 30px;
 	padding-bottom: 10px;
 }
 
 .deckdiv {
-    width: 400px;
-    /*height: 150px;*/
-    background-color: #ffffff;
-    display: flex;
-    justify-content: center;
-    border: groove;
-    margin-top: 5px;
-    margin-bottom: 5px;
-    text-align: center;
-	padding-left: 3px;
-	padding-right: 3px;
-	overflow:auto;
+	width: 375px;
+	/*height: 150px;*/
+	background-color: #ffffff;
+	display: flex;
+	justify-content: center;
+	border: groove;
+	margin: 10px;
+	text-align: center;
+	padding-left: 10px;
+	padding-right: 10px;
+	overflow: auto;
 	padding-bottom: 10px;
+	border-radius: 7px;
 }
 
 
@@ -280,8 +242,8 @@ a {
 
 
 .studysession {
-	background-color: #f7f7f7;
-	padding-top: 30px;
+	background-color: #fff;
+	padding-top: 10px;
 	padding-bottom: 10px;
 	display: block;
 	margin-right: auto;
@@ -294,22 +256,27 @@ a {
     justify-content: space-between;
     position: absolute;
     vertical-align: bottom;
-    bottom: 10px;
-    margin-top: 10px;
+    bottom: 0px;
     width: 100%;
     height: 30px;
 }
 
 .studycard {
-    width: 300px;
-    height: 250px;
-    display: block;
+    width: 400px;
+    height: 325px;
     position: relative;
     top: 25%;
     margin: auto;
     vertical-align: middle;
 	background-color:#ffffff;
 }
+
+	.studycard .front, .back, .card {
+		width: 400px;
+		height: 275px;
+		font-size: 2rem;
+	}
+
 
     .studycard button {
         width: 40%;
@@ -360,22 +327,33 @@ a {
 
 
 .card-options {
-	background-color: #ffffff;
 	padding: 2px;
-	margin: 1px;
+	margin: 10px;
 }
 
 .card-options-buttons {
 	display: flex;
 	flex-direction: row;
-	justify-content: space-between;
-	padding-left: 20%;
-	padding-right: 20%;
-	padding-bottom: 3px;
+	justify-content: center;
+}
+	.card-options-buttons .btn {
+		margin-top: 3px;
+		margin-left: 10px;
+		margin-right: 10px;
+	}
+
+#description-input, #name-input {
+	display: none;
+	margin-left: auto;
+	margin-right: auto;
+	width: 100%;
 }
 
-#description-input, #name-input, #save {
+#save {
 	display: none;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 5px;
 }
 
 .glyphicon-pencil {
@@ -389,6 +367,25 @@ a {
 }
 
 .viewdecksbuttons {
-	display: inline-block;
+	display: flex;
+	flex-direction: row;
 	padding: 10px;
+	justify-content:center;
+}
+
+	.viewdecksbuttons .btn {
+		margin-left: 10px;
+		margin-right: 10px;
+	}
+
+.edit-table {
+	margin-left: auto;
+	margin-right: auto;
+	width: 70%;
+}
+
+.study-session-info {
+	width: 70%;
+	margin-left: auto;
+	margin-right: auto;
 }
